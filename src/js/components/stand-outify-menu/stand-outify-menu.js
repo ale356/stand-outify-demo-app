@@ -57,6 +57,9 @@ customElements.define('stand-outify-menu',
         .appendChild(template.content.cloneNode(true))
 
       this.elementOptionsSelectElement = this.shadowRoot.getElementById('element-options')
+
+      // Set the value.
+      this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
     }
 
     /**
