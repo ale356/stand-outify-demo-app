@@ -46,6 +46,13 @@ customElements.define('stand-outify-menu',
     animationOptionsSelectElement
 
     /**
+     * The animate button.
+     *
+     * @type {ButtonElement}
+     */
+    animateButtonElement
+
+    /**
      * The element options value.
      *
      * @type {string}
@@ -72,6 +79,7 @@ customElements.define('stand-outify-menu',
 
       this.elementOptionsSelectElement = this.shadowRoot.getElementById('element-options')
       this.animationOptionsSelectElement = this.shadowRoot.getElementById('animation-options')
+      this.animateButtonElement = this.shadowRoot.getElementById('animate-button')
 
       // Set the value.
       this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
@@ -92,6 +100,10 @@ customElements.define('stand-outify-menu',
       this.animationOptionsSelectElement.addEventListener('change', (event) => {
         // Update the value.
         this.#animationOptionsValue = this.animationOptionsSelectElement.options[this.animationOptionsSelectElement.selectedIndex].value
+      })
+
+      this.animateButtonElement.addEventListener('click', (event) => {
+        console.log('Click!')
       })
     }
   }
