@@ -9,20 +9,20 @@ template.innerHTML = `
 <style>
 /*Style here.*/
 </style>
-<div class="select-options">
-  <select>
+<div class="select-menu">
+  <select id="element-options">
     <option value="button">Button</option>
     <option value="a">Anchor</option>
     <option value="h1">H1</option>
     <option value="h2">H2</option>
     <option value="p">Paragraph</option>
   </select>
-  <select>
+  <select id="animation-options">
     <option value="magnify">Magnify</option>
-    <option value="highligt">Highlight</option>
+    <option value="highlight">Highlight</option>
     <option value="shake">Shake</option>
   </select>
-  <button>Animate</button>
+  <button id="animate-button">Animate</button>
 </div>
 `
 
@@ -32,15 +32,31 @@ customElements.define('stand-outify-menu',
    */
   class extends HTMLElement {
     /**
+     * The element options select element.
+     *
+     * @type {SelectElement}
+     */
+    elementOptionsSelectElement
+
+    /**
      * Creates an instance of the current type.
      */
-    constructor () {
+    constructor() {
       super()
 
       // Attach a shadow DOM tree to this element and
       // append the template to the shadow root.
       this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
+
+      this.elementOptionsSelectElement = this.shadowRoot.getElementById('element-options')
+    }
+
+    /**
+     * Called after the element is inserted into the DOM.
+     */
+    connectedCallback() {
+
     }
   }
 )
