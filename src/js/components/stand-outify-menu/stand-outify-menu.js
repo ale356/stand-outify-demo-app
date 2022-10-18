@@ -39,11 +39,25 @@ customElements.define('stand-outify-menu',
     elementOptionsSelectElement
 
     /**
+     * The animation options select element.
+     *
+     * @type {SelectElement}
+     */
+    animationOptionsSelectElement
+
+    /**
      * The element options value.
      *
      * @type {string}
      */
     #elementOptionsValue
+
+    /**
+     * The animation options value.
+     *
+     * @type {string}
+     */
+    #animationOptionsValue
 
     /**
      * Creates an instance of the current type.
@@ -57,9 +71,11 @@ customElements.define('stand-outify-menu',
         .appendChild(template.content.cloneNode(true))
 
       this.elementOptionsSelectElement = this.shadowRoot.getElementById('element-options')
+      this.animationOptionsSelectElement = this.shadowRoot.getElementById('animation-options')
 
       // Set the value.
       this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
+      this.#animationOptionsValue = this.animationOptionsSelectElement.options[this.animationOptionsSelectElement.selectedIndex].value
     }
 
     /**
@@ -71,6 +87,11 @@ customElements.define('stand-outify-menu',
 
         // Update the value.
         this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
+      })
+
+      this.animationOptionsSelectElement.addEventListener('change', (event) => {
+        // Update the value.
+        this.#animationOptionsValue = this.animationOptionsSelectElement.options[this.animationOptionsSelectElement.selectedIndex].value
       })
     }
   }
