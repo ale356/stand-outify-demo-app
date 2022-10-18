@@ -11,14 +11,14 @@ template.innerHTML = `
 </style>
 <div class="select-menu">
   <select id="element-options">
-    <option value="button">Button</option>
+    <option selected value="button">Button</option>
     <option value="a">Anchor</option>
     <option value="h1">H1</option>
     <option value="h2">H2</option>
     <option value="p">Paragraph</option>
   </select>
   <select id="animation-options">
-    <option value="magnify">Magnify</option>
+    <option selected value="magnify">Magnify</option>
     <option value="highlight">Highlight</option>
     <option value="shake">Shake</option>
   </select>
@@ -39,6 +39,13 @@ customElements.define('stand-outify-menu',
     elementOptionsSelectElement
 
     /**
+     * The element options value.
+     *
+     * @type {string}
+     */
+    #elementOptionsValue
+
+    /**
      * Creates an instance of the current type.
      */
     constructor() {
@@ -56,7 +63,12 @@ customElements.define('stand-outify-menu',
      * Called after the element is inserted into the DOM.
      */
     connectedCallback() {
+      // Eventlistener to the element options.
+      this.elementOptionsSelectElement.addEventListener('change', (event) => {
 
+        // Update the value.
+        this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
+      })
     }
   }
 )
