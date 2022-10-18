@@ -1,0 +1,35 @@
+{
+  "name": "stand-outify-demo-webapp",
+  "version": "1.0",
+  "description": "stand-outify demo webapp",
+  "type": "module",
+  "browser": "src/js/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "contributors": [
+    "ale356",
+    "// TODO: YOUR GIT NAME"
+  ],
+  "license": "Apache",
+  "private": true,
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.6",
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.13",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.0"
+  },
+  "eslintConfig": {
+    "extends": "@lnu"
+  },
+  "dependencies": {
+    "vite": "^3.1.8"
+  }
+}
