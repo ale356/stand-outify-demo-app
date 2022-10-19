@@ -3,6 +3,8 @@
  *
  */
 
+import '../stand-outify/index.js'
+
 // Define template.
 const template = document.createElement('template')
 template.innerHTML = `
