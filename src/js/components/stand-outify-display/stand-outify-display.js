@@ -9,8 +9,7 @@ template.innerHTML = `
 <style>
 /*Style here.*/
 </style>
-<div class="display-container">
-  <slot></slot>
+<div id="display-container">
 </div>
 `
 

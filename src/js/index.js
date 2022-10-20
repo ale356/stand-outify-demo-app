@@ -36,7 +36,13 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
   // Get the selected values and animate the element.
   const elementOptionValue = standOutifyMenuElement.elementOptionValue
   const animationOptionValue = standOutifyMenuElement.animationOptionValue
-  console.log(elementOptionValue)
-  console.log(animationOptionValue)
+  const elementToAnimate = document.createElement(elementOptionValue)
+  elementToAnimate.textContent = 'Demo'
+  standOutifyElement.initializeElement(animationOptionValue, elementToAnimate, 'click')
+
+  // Add the animated element as a child to the display component.
+  const standOutifyDisplayReference = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')
+  const standOutifyElementReference = document.querySelector('stand-outify')
+  standOutifyDisplayReference.appendChild(standOutifyElementReference)
 
 })
