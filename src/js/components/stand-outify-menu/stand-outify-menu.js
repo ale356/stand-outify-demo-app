@@ -105,7 +105,8 @@ customElements.define('stand-outify-menu',
       })
 
       this.animateButtonElement.addEventListener('click', (event) => {
-        console.log('Click!')
+        //Create a custom event.
+        this.dispatchEvent(new window.CustomEvent('animateElement'))
       })
     }
   }
