@@ -109,5 +109,12 @@ customElements.define('stand-outify-menu',
         this.dispatchEvent(new window.CustomEvent('animateElement'))
       })
     }
+
+    /**
+     * Gets the element option value.
+     */
+    get elementOptionValue () {
+      return this.#elementOptionsValue
+    }
   }
 )
