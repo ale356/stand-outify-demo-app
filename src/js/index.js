@@ -25,16 +25,18 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
 
   // Check if there already are a standoutify element existing.
   const standOutifyElementExists = document.querySelector('stand-outify')
-  
-  if (standOutifyElementExists === null) {
-    const standOutifyElement = document.createElement('stand-outify')
-    document.body.append(standOutifyElement)
 
-    // Get the selected values and animate the element.
-    const elementOptionValue = standOutifyMenuElement.elementOptionValue
-    console.log(elementOptionValue)
-  } else {
+  if (standOutifyElementExists != null) {
     standOutifyElementExists.remove()
   }
+
+  const standOutifyElement = document.createElement('stand-outify')
+  document.body.append(standOutifyElement)
+
+  // Get the selected values and animate the element.
+  const elementOptionValue = standOutifyMenuElement.elementOptionValue
+  const animationOptionValue = standOutifyMenuElement.animationOptionValue
+  console.log(elementOptionValue)
+  console.log(animationOptionValue)
 
 })

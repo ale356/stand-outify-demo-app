@@ -113,8 +113,15 @@ customElements.define('stand-outify-menu',
     /**
      * Gets the element option value.
      */
-    get elementOptionValue () {
+    get elementOptionValue() {
       return this.#elementOptionsValue
+    }
+
+    /**
+    * Gets the animation option value.
+    */
+    get animationOptionValue() {
+      return this.#animationOptionsValue
     }
   }
 )
