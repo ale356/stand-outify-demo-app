@@ -9,7 +9,7 @@ template.innerHTML = `
 <style>
 /*Style here.*/
 </style>
-<h2 id="h2-title"></h2>
+<h2 id="display-title"></h2>
 <div id="display-container">
 </div>
 `
@@ -25,6 +25,13 @@ customElements.define('stand-outify-display',
      * @type {DivElement}
      */
     #displayContainer
+
+    /**
+     * The display title.
+     *
+     * @type {h2Element}
+     */
+    #displayTitle
 
     /**
      * The callback counter.
@@ -45,6 +52,8 @@ customElements.define('stand-outify-display',
         .appendChild(template.content.cloneNode(true))
 
       this.#displayContainer = this.shadowRoot.getElementById('display-container')
+      this.#displayTitle = this.shadowRoot.getElementById('display-title')
+      this.#callBackCounter = 0
     }
 
     /**
@@ -57,11 +66,18 @@ customElements.define('stand-outify-display',
 
       // Callback function to execute when mutations are observed
       const callback = (mutationList, observer) => {
-        for (const mutation of mutationList) {
-          if (mutation.type === 'childList') {
-            console.log('A child node has been added or removed.');
+        if (this.callBackCounter < 1) {
+          this.#callBackCounter++
+          for (const mutation of mutationList) {
+            if (mutation.type === 'childList') {
+              console.log('A child node has been added or removed.');
+              this.#displayTitle.textContent = 'Click on the element to play the animation.'
+            }
           }
+        } else {
+          observer.disconnect()
         }
+
       }
 
       // Create an observer instance linked to the callback function
@@ -69,10 +85,6 @@ customElements.define('stand-outify-display',
 
       // Start observing the target node for configured mutations
       observer.observe(this.displayContainer, config)
-
-      // Later, you can stop observing
-      observer.disconnect()
-
     }
 
     /**
@@ -80,6 +92,13 @@ customElements.define('stand-outify-display',
     */
     get displayContainer() {
       return this.#displayContainer
+    }
+
+    /**
+    * Gets the display title.
+    */
+    get displayTitle() {
+    return this.#displayTitle
     }
 
     /**
