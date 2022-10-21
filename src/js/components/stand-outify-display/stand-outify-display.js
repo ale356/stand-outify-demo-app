@@ -41,6 +41,26 @@ customElements.define('stand-outify-display',
     #callBackCounter
 
     /**
+     * Adds text if a element is added to the display component.
+     *
+     * @type {Function}
+     */
+    #callBackFunction = (mutationList, observer) => {
+      if (this.callBackCounter < 1) {
+        this.#callBackCounter++
+        for (const mutation of mutationList) {
+          if (mutation.type === 'childList') {
+            console.log('A child node has been added or removed.');
+            this.#displayTitle.textContent = 'Click on the element to play the animation.'
+          }
+        }
+      } else {
+        observer.disconnect()
+      }
+
+    }
+
+    /**
      * Creates an instance of the current type.
      */
     constructor() {
@@ -62,26 +82,10 @@ customElements.define('stand-outify-display',
     connectedCallback() {
 
       // Options for the observer (which mutations to observe)
-      const config = { attributes: false, childList: true, subtree: true };
-
-      // Callback function to execute when mutations are observed
-      const callback = (mutationList, observer) => {
-        if (this.callBackCounter < 1) {
-          this.#callBackCounter++
-          for (const mutation of mutationList) {
-            if (mutation.type === 'childList') {
-              console.log('A child node has been added or removed.');
-              this.#displayTitle.textContent = 'Click on the element to play the animation.'
-            }
-          }
-        } else {
-          observer.disconnect()
-        }
-
-      }
+      const config = { childList: true }
 
       // Create an observer instance linked to the callback function
-      const observer = new MutationObserver(callback)
+      const observer = new MutationObserver(this.#callBackFunction)
 
       // Start observing the target node for configured mutations
       observer.observe(this.displayContainer, config)
