@@ -24,7 +24,9 @@ const standOutifyMenuReference = document.querySelector('stand-outify-menu')
 standOutifyMenuReference.addEventListener('animateElement', (event) => {
 
   // Check if there already are a standoutify element existing.
-  const standOutifyElementExists = document.querySelector('stand-outify')
+  const standOutifyDisplayReference = document.querySelector('stand-outify-display')
+  const standOutifyElementExists = standOutifyDisplayReference.shadowRoot.querySelector('stand-outify')
+  console.log(standOutifyElementExists)
 
   if (standOutifyElementExists != null) {
     standOutifyElementExists.remove()
@@ -41,8 +43,8 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
   standOutifyElement.initializeElement(animationOptionValue, elementToAnimate, 'click')
 
   // Add the animated element as a child to the display component.
-  const standOutifyDisplayReference = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')
+  const standOutifyDisplayContainer = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')
   const standOutifyElementReference = document.querySelector('stand-outify')
-  standOutifyDisplayReference.appendChild(standOutifyElementReference)
+  standOutifyDisplayContainer.appendChild(standOutifyElementReference)
 
 })
