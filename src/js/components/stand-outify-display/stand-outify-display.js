@@ -27,6 +27,13 @@ customElements.define('stand-outify-display',
     #displayContainer
 
     /**
+     * The callback counter.
+     *
+     * @type {DivElement}
+     */
+    #callBackCounter
+
+    /**
      * Creates an instance of the current type.
      */
     constructor() {
@@ -44,8 +51,6 @@ customElements.define('stand-outify-display',
      * Called after the element is inserted into the DOM.
      */
     connectedCallback() {
-      // Select the node that will be observed for mutations
-      const targetNode = document.getElementById('some-id');
 
       // Options for the observer (which mutations to observe)
       const config = { attributes: false, childList: true, subtree: true };
@@ -60,21 +65,28 @@ customElements.define('stand-outify-display',
       }
 
       // Create an observer instance linked to the callback function
-      const observer = new MutationObserver(callback);
+      const observer = new MutationObserver(callback)
 
       // Start observing the target node for configured mutations
-      observer.observe(targetNode, config);
+      observer.observe(this.displayContainer, config)
 
       // Later, you can stop observing
-      observer.disconnect();
+      observer.disconnect()
 
     }
 
     /**
-  * Gets the element option value.
- */
+    * Gets the display container.
+    */
     get displayContainer() {
       return this.#displayContainer
+    }
+
+    /**
+    * Gets the callback counter.
+    */
+    get callBackCounter() {
+      return this.#callBackCounter
     }
   }
 )
