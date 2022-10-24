@@ -34,6 +34,7 @@ select {
 }
 /* From uiverse.io */
 button {
+  margin: 12px;
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
@@ -54,9 +55,12 @@ button:hover {
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
 }
+label {
+  padding: 8px;
+}
 </style>
   <div class="select-menu">
-  <h3>Choose an element</h3>
+  <label for="element-options">Choose an element</label>
     <select id="element-options">
       <option selected value="button">Button</option>
       <option value="a">Anchor</option>
@@ -64,6 +68,7 @@ button:hover {
       <option value="h2">H2</option>
       <option value="p">Paragraph</option>
     </select>
+    <label for="animation-options">Choose an animation</label>
     <select id="animation-options">
       <option selected value="magnify">Magnify</option>
       <option value="highlight">Highlight</option>
