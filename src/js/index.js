@@ -19,7 +19,17 @@ middleContainer.append(standOutifyDisplayElement)
 
 const standOutifyMenuReference = document.querySelector('stand-outify-menu')
 
-// Listen after the button animate, and then display an animted element.
+// Listen after the button animate, and then display an animated element.
+/*
+1. It adds an event listener that runs when custom event fires.
+2. The code inside the function does.
+3. Checks if there is a stand outify element - standOutifyExists() returns boolean value.
+4. Gets the current values from user. - getCurrentData() - returns arraylist of strings.
+5. Creates an element and animates it. - createDemoElement() - returns standOutifyElement.
+6. Assigns the stand outify element to the display container. - ShowDemoElement() - returns void
+Keep the add eventlistener but lift out the code to separate functions.
+
+*/
 standOutifyMenuReference.addEventListener('animateElement', (event) => {
 
   const standOutifyDisplayReference = document.querySelector('stand-outify-display')
@@ -45,3 +55,12 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
   standOutifyDisplayContainer.style.display = 'flex'
 
 })
+
+const removeOldStandOutify () => {
+  const standOutifyDisplayReference = document.querySelector('stand-outify-display')
+  const standOutifyElementExists = standOutifyDisplayReference.shadowRoot.querySelector('stand-outify')
+
+  if (standOutifyElementExists != null) {
+    standOutifyElementExists.remove()
+  }
+}
