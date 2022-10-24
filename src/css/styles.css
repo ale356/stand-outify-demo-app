@@ -6,7 +6,6 @@ body {
   box-sizing: border-box;
 }
 
-
 /* Style the header */
 .header {
   grid-area: header;
