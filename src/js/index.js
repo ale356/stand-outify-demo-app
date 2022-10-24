@@ -48,4 +48,7 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
   const standOutifyElementReference = document.querySelector('stand-outify')
   standOutifyDisplayContainer.appendChild(standOutifyElementReference)
 
+  // Change the property none to flex.
+  standOutifyDisplayContainer.style.display = 'flex'
+
 })

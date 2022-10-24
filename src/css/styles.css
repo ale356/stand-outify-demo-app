@@ -2,6 +2,11 @@ body {
 	background: #ffffff;
 }
 
+h1 {
+  border-bottom:2px solid orangered;
+  padding-bottom:5px;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -8,6 +8,15 @@ const template = document.createElement('template')
 template.innerHTML = `
 <style>
 /*Style here.*/
+#display-container {
+  background-color: rgba(60, 60, 60, 0.2);
+  border-style: solid;
+  width: 100%;
+  height: 300px;
+  display: none;
+	align-items: center;
+	justify-content: center;
+}
 </style>
   <h2 id="display-title"></h2>
   <div id="display-container">
