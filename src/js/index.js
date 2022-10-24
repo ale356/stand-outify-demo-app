@@ -13,10 +13,11 @@ const standOutifyMenuElement = document.createElement('stand-outify-menu')
 const standOutifyDisplayElement = document.createElement('stand-outify-display')
 
 // Append the elements to the document.
-document.body.append(standOutifyMenuElement)
-document.body.append(standOutifyDisplayElement)
+const headerContainer = document.querySelector('.header')
+const middleContainer = document.querySelector('.middle')
 
-// standOutifyElement.initializeElement('highlight', h1Element, 'click')
+headerContainer.append(standOutifyMenuElement)
+middleContainer.append(standOutifyDisplayElement)
 
 // Add a event listener to the dom.
 const standOutifyMenuReference = document.querySelector('stand-outify-menu')

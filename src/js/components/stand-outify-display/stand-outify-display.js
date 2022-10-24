@@ -9,8 +9,8 @@ template.innerHTML = `
 <style>
 /*Style here.*/
 </style>
-<h2 id="display-title"></h2>
-<div id="display-container">
+  <h2 id="display-title"></h2>
+  <div id="display-container">
 </div>
 `
 
@@ -102,7 +102,7 @@ customElements.define('stand-outify-display',
     * Gets the display title.
     */
     get displayTitle() {
-    return this.#displayTitle
+      return this.#displayTitle
     }
 
     /**

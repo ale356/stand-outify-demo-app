@@ -8,6 +8,11 @@ const template = document.createElement('template')
 template.innerHTML = `
 <style>
 /*Style here.*/
+#slot-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
 <slot id="slot-element"></slot>
 `
@@ -105,7 +110,7 @@ customElements.define('stand-outify',
     /**
      * Creates an instance of the current type.
      */
-    constructor () {
+    constructor() {
       super()
 
       // Attach a shadow DOM tree to this element and
@@ -123,7 +128,7 @@ customElements.define('stand-outify',
     /**
      * Getter method for the animation style.
      */
-    get getAnimationStyle () {
+    get getAnimationStyle() {
       return this.#animationStyle
     }
 
@@ -132,14 +137,14 @@ customElements.define('stand-outify',
      *
      * @param animationStyle
      */
-    #setAnimationStyle (animationStyle) {
+    #setAnimationStyle(animationStyle) {
       this.#animationStyle = animationStyle
     }
 
     /**
      * Getter method for the event type.
      */
-    get #getEventType () {
+    get #getEventType() {
       return this.#eventType
     }
 
@@ -148,14 +153,14 @@ customElements.define('stand-outify',
      *
      * @param eventType
      */
-    #setEventType (eventType) {
+    #setEventType(eventType) {
       this.#eventType = eventType
     }
 
     /**
      * Getter method for the child element.
      */
-    get #getChildElement () {
+    get #getChildElement() {
       return this.childElement
     }
 
@@ -166,7 +171,7 @@ customElements.define('stand-outify',
      * @param childElement
      * @param eventType
      */
-    initializeElement (animationstyle, childElement, eventType) {
+    initializeElement(animationstyle, childElement, eventType) {
       // Check if the input is valid.
       if (typeof animationstyle === 'string' && typeof eventType === 'string' &&
         typeof childElement === 'object') {
@@ -194,7 +199,7 @@ customElements.define('stand-outify',
     /**
      * Adds a event listener to the child element.
      */
-    #addEventListenerToChildElement () {
+    #addEventListenerToChildElement() {
       // Add a eventlistener with a signal.
       this.childElement.addEventListener(this.#getEventType, (event) => {
         this.#animateChildElement()
@@ -204,7 +209,7 @@ customElements.define('stand-outify',
     /**
      * Sets the animation settings to use.
      */
-    #setChosenAnimationSettings () {
+    #setChosenAnimationSettings() {
       // Set the animation.
       for (const key in this.#animationObject) {
         if (key === this.#animationStyle) {
@@ -225,7 +230,7 @@ customElements.define('stand-outify',
      *
      * @param animationStyle
      */
-    changeAnimationStyle (animationStyle) {
+    changeAnimationStyle(animationStyle) {
       if (typeof animationStyle === 'string') {
         // Update the property.
         this.#setAnimationStyle(animationStyle)
@@ -242,7 +247,7 @@ customElements.define('stand-outify',
      *
      * @param eventType
      */
-    changeEventListenerType (eventType) {
+    changeEventListenerType(eventType) {
       // Remove the event listener.
       this.abortEventListenerChildElement()
 
@@ -256,7 +261,7 @@ customElements.define('stand-outify',
     /**
      * Aborts the event listener on the child element.
      */
-    abortEventListenerChildElement () {
+    abortEventListenerChildElement() {
       // Remove a eventlistener.
       this.#controller.abort()
 
@@ -268,7 +273,7 @@ customElements.define('stand-outify',
     /**
      * Animates the child element.
      */
-    #animateChildElement () {
+    #animateChildElement() {
       this.childElement.animate(this.#selectedAnimationSettings, this.#selectedTimingSettings)
     }
 
@@ -277,7 +282,7 @@ customElements.define('stand-outify',
      *
      * @param colorString
      */
-    changeColorOfAnimation (colorString) {
+    changeColorOfAnimation(colorString) {
       if (typeof colorString === 'string') {
         // Iterate through each transform object.
         const currentAnimation = this.getAnimationStyle
@@ -302,7 +307,7 @@ customElements.define('stand-outify',
      *
      * @param milliseconds
      */
-    changeDurationOfAnimation (milliseconds) {
+    changeDurationOfAnimation(milliseconds) {
       if (typeof milliseconds === 'number') {
         // Get the timing object.
         const currentAnimation = this.getAnimationStyle

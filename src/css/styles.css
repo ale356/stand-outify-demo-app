@@ -1,3 +1,70 @@
 body {
 	background: #ffffff;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Style the header */
+.header {
+  grid-area: header;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left middle middle middle middle right' 
+    'footer footer footer footer footer footer';
+} 
+
+/* Style the left column */
+.left {
+  grid-area: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  padding: 10px;
+  text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left left left left left' 
+      'middle middle middle middle middle middle' 
+      'right right right right right right' 
+      'footer footer footer footer footer footer';
+  }
+}

@@ -11,21 +11,21 @@ template.innerHTML = `
 <style>
 /*Style here.*/
 </style>
-<div class="select-menu">
-  <select id="element-options">
-    <option selected value="button">Button</option>
-    <option value="a">Anchor</option>
-    <option value="h1">H1</option>
-    <option value="h2">H2</option>
-    <option value="p">Paragraph</option>
-  </select>
-  <select id="animation-options">
-    <option selected value="magnify">Magnify</option>
-    <option value="highlight">Highlight</option>
-    <option value="shake">Shake</option>
-  </select>
-  <button id="animate-button">Animate</button>
-</div>
+  <div class="select-menu">
+    <select id="element-options">
+      <option selected value="button">Button</option>
+      <option value="a">Anchor</option>
+      <option value="h1">H1</option>
+      <option value="h2">H2</option>
+      <option value="p">Paragraph</option>
+    </select>
+    <select id="animation-options">
+      <option selected value="magnify">Magnify</option>
+      <option value="highlight">Highlight</option>
+      <option value="shake">Shake</option>
+    </select>
+    <button id="animate-button">Animate</button>
+  </div>
 `
 
 customElements.define('stand-outify-menu',
