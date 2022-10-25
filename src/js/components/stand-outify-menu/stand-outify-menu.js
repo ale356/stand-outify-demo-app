@@ -49,7 +49,6 @@ button {
   cursor: pointer;
   outline: none;
 }
-
 button:hover {
   background-color: orangered;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -84,14 +83,14 @@ customElements.define('stand-outify-menu',
    */
   class extends HTMLElement {
     /**
-     * The element options select element.
+     * A select element.
      *
      * @type {SelectElement}
      */
     elementOptionsSelectElement
 
     /**
-     * The animation options select element.
+     * A select element.
      *
      * @type {SelectElement}
      */
@@ -133,7 +132,6 @@ customElements.define('stand-outify-menu',
       this.animationOptionsSelectElement = this.shadowRoot.getElementById('animation-options')
       this.animateButtonElement = this.shadowRoot.getElementById('animate-button')
 
-      // Set the value.
       this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
       this.#animationOptionsValue = this.animationOptionsSelectElement.options[this.animationOptionsSelectElement.selectedIndex].value
     }
@@ -142,7 +140,6 @@ customElements.define('stand-outify-menu',
      * Called after the element is inserted into the DOM.
      */
     connectedCallback() {
-      // Eventlistener to the element options.
       this.elementOptionsSelectElement.addEventListener('change', (event) => {
 
         // Update the value.
@@ -150,12 +147,10 @@ customElements.define('stand-outify-menu',
       })
 
       this.animationOptionsSelectElement.addEventListener('change', (event) => {
-        // Update the value.
         this.#animationOptionsValue = this.animationOptionsSelectElement.options[this.animationOptionsSelectElement.selectedIndex].value
       })
 
       this.animateButtonElement.addEventListener('click', (event) => {
-        //Create a custom event.
         this.dispatchEvent(new window.CustomEvent('animateElement'))
       })
     }
