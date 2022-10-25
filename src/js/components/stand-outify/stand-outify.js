@@ -112,7 +112,7 @@ customElements.define('stand-outify',
     }
 
     /**
-     * Object that holds the timing settings for the animations.
+     * Holds the timing settings for the animations.
      *
      * @type {object}
      */
