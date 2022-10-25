@@ -36,14 +36,10 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
 
   const currentDataArray = getCurrentData()
 
-  const elementToAnimate = document.createElement(currentDataArray[0])
-  elementToAnimate.textContent = 'Demo'
-
-  const standOutifyElement = document.createElement('stand-outify')
-  standOutifyElement.initializeElement(currentDataArray[1], elementToAnimate, 'click')
+  const demoElement = createDemoElement(currentDataArray)
 
   const standOutifyDisplayContainer = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')
-  standOutifyDisplayContainer.appendChild(standOutifyElement)
+  standOutifyDisplayContainer.appendChild(demoElement)
 
   // Show the display container.
   standOutifyDisplayContainer.style.display = 'flex'
@@ -66,6 +62,16 @@ const getCurrentData = () => {
   currentDataArray.push(elementOptionValue)
   currentDataArray.push(animationOptionValue)
   return currentDataArray
+}
+
+const createDemoElement = (currentDataArray) => {
+
+  const elementToAnimate = document.createElement(currentDataArray[0])
+  elementToAnimate.textContent = 'Demo'
+
+  const demoElement = document.createElement('stand-outify')
+  demoElement.initializeElement(currentDataArray[1], elementToAnimate, 'click')
+  return demoElement
 }
 
 // Test functions here.
