@@ -63,14 +63,14 @@ customElements.define('stand-outify',
      *
      * @type {Object}
      */
-    #selectedAnimationSettings
+    #selectedAnimationStyleSettings
 
     /**
      * The selected timing property.
      *
      * @type {Object}
      */
-    #selectedTimingSettings
+    #selectedAnimationTimingSettings
 
     /**
      * The abort controller.
@@ -142,13 +142,13 @@ customElements.define('stand-outify',
     /**
      * Initializes the custom element with a style, event type and a child element.
      *
-     * @param animationStyle
-     * @param childElement
-     * @param eventType
+     * @param animationStyle - a string.
+     * @param childElement - a HTMLElement.
+     * @param eventType - a string.
      */
     initializeElement(animationStyle, childElement, eventType) {
       if (this.#validInitializeParameters(animationStyle, childElement, eventType)) {
-        this.#setupElement(animationStyle, childElement, eventType)
+        this.#setupCustomElement(animationStyle, childElement, eventType)
 
         this.#setChosenAnimationSettings()
 
@@ -170,9 +170,9 @@ customElements.define('stand-outify',
     }
 
     /**
-    * Setup the custom element with values needed to initialize element.
+    * Setup the custom element with the values needed to initialize it.
     */
-    #setupElement(animationStyle, childElement, eventType) {
+    #setupCustomElement(animationStyle, childElement, eventType) {
 
       this.#setAnimationStyle = animationStyle
 
@@ -199,17 +199,28 @@ customElements.define('stand-outify',
      * Sets the animation settings to use.
      */
     #setChosenAnimationSettings() {
-      // Set the animation.
+      this.#setAnimationStyleSettings()
+      this.#setAnimationTimingSettings()
+    }
+
+    /**
+     * Sets the animation style settings to use.
+     */
+    #setAnimationStyleSettings() {
       for (const key in this.#animationObject) {
         if (key === this.#animationStyle) {
-          this.#selectedAnimationSettings = this.#animationObject[key]
+          this.#selectedAnimationStyleSettings = this.#animationObject[key]
         }
       }
+    }
 
-      // Set the timing.
+    /**
+     * Sets the animation timing settings to use.
+     */
+    #setAnimationTimingSettings() {
       for (const key in this.#timingObject) {
         if (key === this.#animationStyle) {
-          this.#selectedTimingSettings = this.#timingObject[key]
+          this.#selectedAnimationTimingSettings = this.#timingObject[key]
         }
       }
     }
@@ -263,7 +274,7 @@ customElements.define('stand-outify',
      * Animates the child element.
      */
     #animateChildElement() {
-      this.childElement.animate(this.#selectedAnimationSettings, this.#selectedTimingSettings)
+      this.childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
     }
 
     /**
@@ -313,7 +324,7 @@ customElements.define('stand-outify',
       return this.#animationStyle
     }
 
-   set #setAnimationStyle(animationStyle) {
+    set #setAnimationStyle(animationStyle) {
       this.#animationStyle = animationStyle
     }
 
@@ -321,7 +332,7 @@ customElements.define('stand-outify',
       return this.#eventType
     }
 
-     set #setEventType(eventType) {
+    set #setEventType(eventType) {
       this.#eventType = eventType
     }
 
