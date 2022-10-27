@@ -40,14 +40,14 @@ customElements.define('stand-outify',
     /**
      * The slot element.
      *
-     * @type {HTMLDivElement}
+     * @type {SlotElement}
      */
     #slotElement
 
     /**
      * The string value for the animation.
      *
-     * @type {string}
+     * @type {String}
      */
     #animationStyle
 
@@ -61,35 +61,35 @@ customElements.define('stand-outify',
     /**
      * The selected animation property.
      *
-     * @type {object}
+     * @type {Object}
      */
     #selectedAnimationSettings
 
     /**
      * The selected timing property.
      *
-     * @type {object}
+     * @type {Object}
      */
     #selectedTimingSettings
 
     /**
      * The abort controller.
      *
-     * @type {object}
+     * @type {Object}
      */
     #controller
 
     /**
-     * The event to listen for.
+     * The event type to listen for.
      *
-     * @type {object}
+     * @type {Object}
      */
     #eventType
 
     /**
-     * Object that holds the different animation settings.
+     * Holds the different animation settings.
      *
-     * @type {object}
+     * @type {Object}
      */
     #animationObject = {
       magnify: [
@@ -133,48 +133,28 @@ customElements.define('stand-outify',
       this.attachShadow({ mode: 'open' })
         .appendChild(template.content.cloneNode(true))
 
-      // Reference to the slot element.
       this.#slotElement = this.shadowRoot.getElementById('slot-element')
 
-      // Create a controller object.
+      // Controller object that can abort DOM requests.
       this.#controller = new AbortController()
     }
 
-    /**
-     * Getter method for the animation style.
-     */
     get getAnimationStyle() {
       return this.#animationStyle
     }
 
-    /**
-     * Setter method for the animation style.
-     *
-     * @param animationStyle
-     */
     #setAnimationStyle(animationStyle) {
       this.#animationStyle = animationStyle
     }
 
-    /**
-     * Getter method for the event type.
-     */
     get #getEventType() {
       return this.#eventType
     }
 
-    /**
-     * Setter method for the event listener type.
-     *
-     * @param eventType
-     */
     #setEventType(eventType) {
       this.#eventType = eventType
     }
 
-    /**
-     * Getter method for the child element.
-     */
     get #getChildElement() {
       return this.childElement
     }
@@ -182,16 +162,16 @@ customElements.define('stand-outify',
     /**
      * Initializes the custom element with a style, event type and a child element.
      *
-     * @param animationstyle
+     * @param animationStyle
      * @param childElement
      * @param eventType
      */
-    initializeElement(animationstyle, childElement, eventType) {
+    initializeElement(animationStyle, childElement, eventType) {
       // Check if the input is valid.
-      if (typeof animationstyle === 'string' && typeof eventType === 'string' &&
+      if (typeof animationStyle === 'string' && typeof eventType === 'string' &&
         typeof childElement === 'object') {
         // Setup the element.
-        this.#animationStyle = animationstyle
+        this.#animationStyle = animationStyle
 
         this.#eventType = eventType
 
@@ -210,6 +190,19 @@ customElements.define('stand-outify',
         console.log('Invalid input.')
       }
     }
+
+   /**
+   * Validates the parameters for the method initializeElement().
+   */
+    #validateInitializeElementParameters(animationStyle, eventType, childElement) {
+ // Check if the input is valid.
+ if (typeof animationStyle === 'string' && typeof eventType === 'string' &&
+ typeof childElement === 'object') {
+  return true
+  } else {
+    console.log('Invalid input.')
+    return false
+  }
 
     /**
      * Adds a event listener to the child element.
