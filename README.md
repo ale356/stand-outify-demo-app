@@ -1,6 +1,7 @@
 # Stand-outify Demo App
 ## Description
 Demo web application to showcase the functionality of the library Stand-outify.
+![Alt text](resources/preview-app.png "Image of the demo web app Stand-outify")
 ## Get the Stand-outify library from this link
 https://github.com/ale356/stand-outify
 ## Installation
@@ -23,12 +24,6 @@ Then click on the local host link in the terminal to open the app in the browser
 ```
 $ Local: http://localhost:5182/
 ```
-
-## Test Report
-| Use-Cases     | Manual Test-Cases | Test Results |
-| ------------- | ------------- | -------- |
-| [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc11-showcase-an-animated-button-element-successfully)         | OK       |
-| [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.2](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc12-showcase-an-animated-h1-element-successfully)         | OK       |
 
 ## License
    Copyright 2022 ale356
