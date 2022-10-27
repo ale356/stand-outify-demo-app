@@ -232,10 +232,8 @@ customElements.define('stand-outify',
      */
     changeAnimationStyle(animationStyle) {
       if (typeof animationStyle === 'string') {
-        // Update the property.
         this.#setAnimationStyle(animationStyle)
 
-        // Update the animation settings.
         this.#setChosenAnimationSettings()
       } else {
         console.log('Invalid input.')
@@ -245,16 +243,13 @@ customElements.define('stand-outify',
     /**
      * Change the event listener type.
      *
-     * @param eventType
+     * @param eventType - a string.
      */
     changeEventListenerType(eventType) {
-      // Remove the event listener.
       this.abortEventListenerChildElement()
 
-      // Update the property.
       this.#setEventType(eventType)
 
-      // Add new event listener.
       this.#addEventListenerToChildElement()
     }
 
@@ -262,7 +257,7 @@ customElements.define('stand-outify',
      * Aborts the event listener on the child element.
      */
     abortEventListenerChildElement() {
-      // Remove a eventlistener.
+      // Remove the eventlistener on child element.
       this.#controller.abort()
 
       if (this.#getChildElement === undefined) {
@@ -283,7 +278,7 @@ customElements.define('stand-outify',
      * @param colorString
      */
     changeColorOfAnimation(colorString) {
-      if (typeof colorString === 'string') {
+      if (this.#parameterIsAString(colorString)) {
         // Iterate through each transform object.
         const currentAnimation = this.getAnimationStyle
         const currentAnimationArray = this.#animationObject[currentAnimation]
@@ -301,6 +296,17 @@ customElements.define('stand-outify',
         }
       }
     }
+
+  /**
+   * Checks if the parameter is a string.
+   */
+  #parameterIsAString(value) {
+    if (typeof value === 'string') {
+      return true
+    } else {
+      return false
+    }
+}
 
     /**
      * Changes the duration of the animation.
