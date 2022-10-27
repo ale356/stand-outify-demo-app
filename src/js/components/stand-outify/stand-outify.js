@@ -297,16 +297,16 @@ customElements.define('stand-outify',
       }
     }
 
-  /**
-   * Checks if the parameter is a string.
-   */
-  #parameterIsAString(value) {
-    if (typeof value === 'string') {
-      return true
-    } else {
-      return false
+    /**
+     * Checks if the parameter is a string.
+     */
+    #parameterIsAString(value) {
+      if (typeof value === 'string') {
+        return true
+      } else {
+        return false
+      }
     }
-}
 
     /**
      * Changes the duration of the animation.
@@ -314,7 +314,7 @@ customElements.define('stand-outify',
      * @param milliseconds
      */
     changeDurationOfAnimation(milliseconds) {
-      if (typeof milliseconds === 'number') {
+      if (this.#parameterIsANumber(milliseconds)) {
         // Get the timing object.
         const currentAnimation = this.getAnimationStyle
         const currentTimingObject = this.#timingObject[currentAnimation]
@@ -323,6 +323,17 @@ customElements.define('stand-outify',
         currentTimingObject.duration = milliseconds
       } else {
         console.log('Invalid data type.')
+      }
+    }
+
+/**
+ * Checks if the parameter is a number.
+ */
+      #parameterIsANumber(value) {
+      if (typeof value === 'number') {
+        return true
+      } else {
+        return false
       }
     }
 
