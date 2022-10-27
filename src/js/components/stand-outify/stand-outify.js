@@ -139,26 +139,6 @@ customElements.define('stand-outify',
       this.#controller = new AbortController()
     }
 
-    get getAnimationStyle() {
-      return this.#animationStyle
-    }
-
-    #setAnimationStyle(animationStyle) {
-      this.#animationStyle = animationStyle
-    }
-
-    get #getEventType() {
-      return this.#eventType
-    }
-
-    #setEventType(eventType) {
-      this.#eventType = eventType
-    }
-
-    get #getChildElement() {
-      return this.childElement
-    }
-
     /**
      * Initializes the custom element with a style, event type and a child element.
      *
@@ -221,128 +201,148 @@ customElements.define('stand-outify',
       this.childElement = this.shadowRoot.getElementById('animation-element')
     }
 
-      /**
-       * Adds a event listener to the child element.
-       */
-      #addEventListenerToChildElement() {
-        // Add a eventlistener with a signal.
-        this.childElement.addEventListener(this.#getEventType, (event) => {
-          this.#animateChildElement()
-        }, { signal: this.#controller.signal })
-      }
+    /**
+     * Adds a event listener to the child element.
+     */
+    #addEventListenerToChildElement() {
+      // Add a eventlistener with a signal.
+      this.childElement.addEventListener(this.#getEventType, (event) => {
+        this.#animateChildElement()
+      }, { signal: this.#controller.signal })
+    }
 
-      /**
-       * Sets the animation settings to use.
-       */
-      #setChosenAnimationSettings() {
-        // Set the animation.
-        for (const key in this.#animationObject) {
-          if (key === this.#animationStyle) {
-            this.#selectedAnimationSettings = this.#animationObject[key]
-          }
-        }
-
-        // Set the timing.
-        for (const key in this.#timingObject) {
-          if (key === this.#animationStyle) {
-            this.#selectedTimingSettings = this.#timingObject[key]
-          }
+    /**
+     * Sets the animation settings to use.
+     */
+    #setChosenAnimationSettings() {
+      // Set the animation.
+      for (const key in this.#animationObject) {
+        if (key === this.#animationStyle) {
+          this.#selectedAnimationSettings = this.#animationObject[key]
         }
       }
 
-      /**
-       * Change the animation of the element.
-       *
-       * @param animationStyle
-       */
-      changeAnimationStyle(animationStyle) {
-        if (typeof animationStyle === 'string') {
-          // Update the property.
-          this.#setAnimationStyle(animationStyle)
-
-          // Update the animation settings.
-          this.#setChosenAnimationSettings()
-        } else {
-          console.log('Invalid input.')
-        }
-      }
-
-      /**
-       * Change the event listener type.
-       *
-       * @param eventType
-       */
-      changeEventListenerType(eventType) {
-        // Remove the event listener.
-        this.abortEventListenerChildElement()
-
-        // Update the property.
-        this.#setEventType(eventType)
-
-        // Add new event listener.
-        this.#addEventListenerToChildElement()
-      }
-
-      /**
-       * Aborts the event listener on the child element.
-       */
-      abortEventListenerChildElement() {
-        // Remove a eventlistener.
-        this.#controller.abort()
-
-        if (this.#getChildElement === undefined) {
-          console.log('No element has been initialized.')
-        }
-      }
-
-      /**
-       * Animates the child element.
-       */
-      #animateChildElement() {
-        this.childElement.animate(this.#selectedAnimationSettings, this.#selectedTimingSettings)
-      }
-
-      /**
-       * Changes the color of the animation.
-       *
-       * @param colorString
-       */
-      changeColorOfAnimation(colorString) {
-        if (typeof colorString === 'string') {
-          // Iterate through each transform object.
-          const currentAnimation = this.getAnimationStyle
-          const currentAnimationArray = this.#animationObject[currentAnimation]
-          let animationUsesColor = false
-
-          currentAnimationArray.forEach(element => {
-            if (element.color !== undefined) {
-              element.color = colorString
-              animationUsesColor = true
-            }
-          })
-
-          if (!animationUsesColor) {
-            console.log('This animation does not have any color.')
-          }
-        }
-      }
-
-      /**
-       * Changes the duration of the animation.
-       *
-       * @param milliseconds
-       */
-      changeDurationOfAnimation(milliseconds) {
-        if (typeof milliseconds === 'number') {
-          // Get the timing object.
-          const currentAnimation = this.getAnimationStyle
-          const currentTimingObject = this.#timingObject[currentAnimation]
-
-          // Change the value of the timing object.
-          currentTimingObject.duration = milliseconds
-        } else {
-          console.log('Invalid data type.')
+      // Set the timing.
+      for (const key in this.#timingObject) {
+        if (key === this.#animationStyle) {
+          this.#selectedTimingSettings = this.#timingObject[key]
         }
       }
     }
+
+    /**
+     * Change the animation of the element.
+     *
+     * @param animationStyle
+     */
+    changeAnimationStyle(animationStyle) {
+      if (typeof animationStyle === 'string') {
+        // Update the property.
+        this.#setAnimationStyle(animationStyle)
+
+        // Update the animation settings.
+        this.#setChosenAnimationSettings()
+      } else {
+        console.log('Invalid input.')
+      }
+    }
+
+    /**
+     * Change the event listener type.
+     *
+     * @param eventType
+     */
+    changeEventListenerType(eventType) {
+      // Remove the event listener.
+      this.abortEventListenerChildElement()
+
+      // Update the property.
+      this.#setEventType(eventType)
+
+      // Add new event listener.
+      this.#addEventListenerToChildElement()
+    }
+
+    /**
+     * Aborts the event listener on the child element.
+     */
+    abortEventListenerChildElement() {
+      // Remove a eventlistener.
+      this.#controller.abort()
+
+      if (this.#getChildElement === undefined) {
+        console.log('No element has been initialized.')
+      }
+    }
+
+    /**
+     * Animates the child element.
+     */
+    #animateChildElement() {
+      this.childElement.animate(this.#selectedAnimationSettings, this.#selectedTimingSettings)
+    }
+
+    /**
+     * Changes the color of the animation.
+     *
+     * @param colorString
+     */
+    changeColorOfAnimation(colorString) {
+      if (typeof colorString === 'string') {
+        // Iterate through each transform object.
+        const currentAnimation = this.getAnimationStyle
+        const currentAnimationArray = this.#animationObject[currentAnimation]
+        let animationUsesColor = false
+
+        currentAnimationArray.forEach(element => {
+          if (element.color !== undefined) {
+            element.color = colorString
+            animationUsesColor = true
+          }
+        })
+
+        if (!animationUsesColor) {
+          console.log('This animation does not have any color.')
+        }
+      }
+    }
+
+    /**
+     * Changes the duration of the animation.
+     *
+     * @param milliseconds
+     */
+    changeDurationOfAnimation(milliseconds) {
+      if (typeof milliseconds === 'number') {
+        // Get the timing object.
+        const currentAnimation = this.getAnimationStyle
+        const currentTimingObject = this.#timingObject[currentAnimation]
+
+        // Change the value of the timing object.
+        currentTimingObject.duration = milliseconds
+      } else {
+        console.log('Invalid data type.')
+      }
+    }
+
+    get getAnimationStyle() {
+      return this.#animationStyle
+    }
+
+   set #setAnimationStyle(animationStyle) {
+      this.#animationStyle = animationStyle
+    }
+
+    get #getEventType() {
+      return this.#eventType
+    }
+
+     set #setEventType(eventType) {
+      this.#eventType = eventType
+    }
+
+    get #getChildElement() {
+      return this.childElement
+    }
+  }
 )
