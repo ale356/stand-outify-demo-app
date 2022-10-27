@@ -50,25 +50,6 @@ customElements.define('stand-outify-display',
     #callBackCounter
 
     /**
-     * Updates the text content of the display title.
-     *
-     * @type {Function}
-     */
-    #updateDisplayTitle = (mutationList, observer) => {
-      if (this.callBackCounter < 1) {
-        this.#callBackCounter++
-        for (const mutation of mutationList) {
-          if (mutation.type === 'childList') {
-            this.#displayTitle.textContent = 'Click on the element to play the animation.'
-          }
-        }
-      } else {
-        observer.disconnect()
-      }
-
-    }
-
-    /**
      * Creates an instance of the current type.
      */
     constructor() {
@@ -99,23 +80,33 @@ customElements.define('stand-outify-display',
       observer.observe(this.displayContainer, config)
     }
 
-    /**
-     * Gets the display container.
-     */
+/**
+ * Updates the text content of the display title.
+ *
+ * @type {Function}
+ */
+    #updateDisplayTitle = (mutationList, observer) => {
+      if (this.callBackCounter < 1) {
+        this.#callBackCounter++
+        for (const mutation of mutationList) {
+          if (mutation.type === 'childList') {
+            this.#displayTitle.textContent = 'Click on the element to play the animation.'
+          }
+        }
+      } else {
+        observer.disconnect()
+      }
+
+    }
+
     get displayContainer() {
       return this.#displayContainer
     }
 
-    /**
-    * Gets the display title.
-    */
     get displayTitle() {
       return this.#displayTitle
     }
 
-    /**
-    * Gets the callback counter.
-    */
     get callBackCounter() {
       return this.#callBackCounter
     }

@@ -32,7 +32,6 @@ select {
 .select-menu {
   font-size: 20px;
 }
-/* From uiverse.io */
 button {
   margin: 12px;
   padding: 1.3em 3em;
@@ -97,7 +96,7 @@ customElements.define('stand-outify-menu',
     animationOptionsSelectElement
 
     /**
-     * The animate button.
+     * A button.
      *
      * @type {ButtonElement}
      */
@@ -106,14 +105,14 @@ customElements.define('stand-outify-menu',
     /**
      * The element options value.
      *
-     * @type {string}
+     * @type {String}
      */
     #elementOptionsValue
 
     /**
      * The animation options value.
      *
-     * @type {string}
+     * @type {String}
      */
     #animationOptionsValue
 
@@ -141,8 +140,6 @@ customElements.define('stand-outify-menu',
      */
     connectedCallback() {
       this.elementOptionsSelectElement.addEventListener('change', (event) => {
-
-        // Update the value.
         this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
       })
 
@@ -155,16 +152,10 @@ customElements.define('stand-outify-menu',
       })
     }
 
-    /**
-     * Gets the element option value.
-     */
     get elementOptionValue() {
       return this.#elementOptionsValue
     }
 
-    /**
-    * Gets the animation option value.
-    */
     get animationOptionValue() {
       return this.#animationOptionsValue
     }
