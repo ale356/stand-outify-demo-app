@@ -147,37 +147,21 @@ customElements.define('stand-outify',
      * @param eventType
      */
     initializeElement(animationStyle, childElement, eventType) {
-      // Check if the input is valid.
-      if (typeof animationStyle === 'string' && typeof eventType === 'string' &&
-        typeof childElement === 'object') {
-        // Setup the element.
-        this.#animationStyle = animationStyle
+      if (this.#validInitializeParameters(animationStyle, childElement, eventType)) {
+        this.#setupElement(animationStyle, childElement, eventType)
 
-        this.#eventType = eventType
-
-        childElement.setAttribute('id', 'animation-element')
-
-        this.#slotElement.appendChild(childElement)
-
-        this.childElement = this.shadowRoot.getElementById('animation-element')
-
-        // Set the correct animation settings.
         this.#setChosenAnimationSettings()
 
-        // Animate the element and add a event listener.
         this.#addEventListenerToChildElement()
-      } else {
-        console.log('Invalid input.')
       }
     }
 
     /**
     * Validates the parameters for the method initializeElement().
     */
-    #validateInitializeElementParameters(animationStyle, eventType, childElement) {
+    #validInitializeParameters(animationStyle, childElement, eventType) {
 
-      if (typeof animationStyle === 'string' && typeof eventType === 'string' &&
-        typeof childElement === 'object') {
+      if (typeof animationStyle === 'string' && typeof childElement === 'object' && typeof eventType === 'string') {
         return true
       } else {
         console.log('Invalid input.')
@@ -188,11 +172,11 @@ customElements.define('stand-outify',
     /**
     * Setup the custom element with values needed to initialize element.
     */
-    #setupElement(animationStyle, eventType, childElement) {
+    #setupElement(animationStyle, childElement, eventType) {
 
-      this.#animationStyle = animationStyle
+      this.#setAnimationStyle = animationStyle
 
-      this.#eventType = eventType
+      this.#setEventType = eventType
 
       childElement.setAttribute('id', 'animation-element')
 
