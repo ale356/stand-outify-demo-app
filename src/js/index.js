@@ -19,6 +19,9 @@ middleContainer.append(standOutifyDisplayElement)
 
 const standOutifyMenuReference = document.querySelector('stand-outify-menu')
 
+/**
+ * Listen for the custom event 'animateElement'.
+ */
 standOutifyMenuReference.addEventListener('animateElement', (event) => {
   removeOldStandOutify()
 
@@ -28,6 +31,9 @@ standOutifyMenuReference.addEventListener('animateElement', (event) => {
   showDemoElement(demoElement)
 })
 
+/**
+ * Removes any previous stand-outify elements in the DOM.
+ */
 const removeOldStandOutify = () => {
   const standOutifyDisplayReference = document.querySelector('stand-outify-display')
   const standOutifyElementExists = standOutifyDisplayReference.shadowRoot.querySelector('stand-outify')
@@ -37,6 +43,9 @@ const removeOldStandOutify = () => {
   }
 }
 
+/**
+ * Gets the currect select data by user.
+ */
 const getCurrentData = () => {
   const elementOptionValue = standOutifyMenuElement.elementOptionValue
   const animationOptionValue = standOutifyMenuElement.animationOptionValue
@@ -45,7 +54,10 @@ const getCurrentData = () => {
   currentDataArray.push(animationOptionValue)
   return currentDataArray
 }
-
+ 
+/**
+ * Creates an demo element from selected user data.
+ */
 const createDemoElement = (currentDataArray) => {
 
   const elementToAnimate = document.createElement(currentDataArray[0])
@@ -56,6 +68,9 @@ const createDemoElement = (currentDataArray) => {
   return demoElement
 }
 
+/**
+ * Shows the demo element on the user interface.
+ */
 const showDemoElement = (demoElement) => {
   const standOutifyDisplayContainer = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')
 
