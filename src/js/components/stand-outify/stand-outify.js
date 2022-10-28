@@ -56,7 +56,7 @@ customElements.define('stand-outify',
      *
      * @type {HTMLElement}
      */
-    childElement
+    #childElement
 
     /**
      * The selected animation property.
@@ -183,7 +183,7 @@ customElements.define('stand-outify',
 
       this.#slotElement.appendChild(childElement)
 
-      this.childElement = this.shadowRoot.getElementById('animation-element')
+      this.#childElement = this.shadowRoot.getElementById('animation-element')
     }
 
     /**
@@ -191,7 +191,7 @@ customElements.define('stand-outify',
      */
     #addEventListenerToChildElement() {
       // Add a eventlistener with a signal.
-      this.childElement.addEventListener(this.#getEventType, (event) => {
+      this.#childElement.addEventListener(this.#getEventType, (event) => {
         this.#animateChildElement()
       }, { signal: this.#controller.signal })
     }
@@ -266,7 +266,7 @@ customElements.define('stand-outify',
      * Animates the child element.
      */
     #animateChildElement() {
-      this.childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
+      this.#childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
     }
 
     /**
@@ -303,7 +303,6 @@ customElements.define('stand-outify',
       if (typeof value === 'string') {
         return true
       } else {
-        console.log('Not a string.')
         return false
       }
     }
@@ -362,7 +361,7 @@ customElements.define('stand-outify',
     }
 
     get #getChildElement() {
-      return this.childElement
+      return this.#childElement
     }
   }
 )
