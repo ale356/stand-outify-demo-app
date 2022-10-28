@@ -232,12 +232,12 @@ customElements.define('stand-outify',
      * @param animationStyle
      */
     changeAnimationStyle(animationStyle) {
-      if (typeof animationStyle === 'string') {
+      if (this.#parameterIsAString(animationStyle)) {
         this.#setAnimationStyle(animationStyle)
 
         this.#setChosenAnimationSettings()
       } else {
-        console.log('Invalid input.')
+        throw new Error('The parameter is not a string.')
       }
     }
 
