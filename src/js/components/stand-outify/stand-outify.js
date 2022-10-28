@@ -176,14 +176,12 @@ customElements.define('stand-outify',
     #setupCustomElement(animationStyle, childElement, eventType) {
 
       this.#setAnimationStyle = animationStyle
-
       this.#setEventType = eventType
 
       childElement.setAttribute('id', 'animation-element')
-
       this.#slotElement.appendChild(childElement)
 
-      this.#childElement = this.shadowRoot.getElementById('animation-element')
+      this.#setChildElement = this.shadowRoot.getElementById('animation-element')
     }
 
     /**
@@ -365,6 +363,22 @@ customElements.define('stand-outify',
     }
 
     set #setChildElement(childElement) {
+      if (this.#parameterIsAElement(childElement)) {
+        this.#childElement = childElement
+      } else {
+        throw new Error('The parameter is not a element.')
+      }
     }
+
+  /**
+   * Checks if the parameter is a element.
+   */
+    #parameterIsAElement(value) {
+    if (value instanceof Element) {
+      return true
+    } else {
+      return false
+    }
+  }
   }
 )

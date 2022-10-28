@@ -81,3 +81,12 @@ const showDemoElement = (demoElement) => {
   standOutifyDisplayContainer.appendChild(demoElement)
   standOutifyDisplayContainer.style.display = 'flex'
 }
+
+
+// Test
+const myElement = document.createElement('button')
+myElement.setAttribute('id', 'test')
+document.body.append(myElement)
+const myReference = document.getElementById('test')
+console.log(typeof myReference)
+console.log(myReference instanceof Element)
