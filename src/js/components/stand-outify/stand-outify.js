@@ -304,6 +304,7 @@ customElements.define('stand-outify',
       if (typeof value === 'string') {
         return true
       } else {
+        console.log('Not a string.')
         return false
       }
     }
@@ -321,8 +322,6 @@ customElements.define('stand-outify',
 
         // Change the value of the timing object.
         currentTimingObject.duration = milliseconds
-      } else {
-        console.log('Invalid data type.')
       }
     }
 
@@ -333,6 +332,7 @@ customElements.define('stand-outify',
       if (typeof value === 'number') {
         return true
       } else {
+        console.log('Not a number.')
         return false
       }
     }
