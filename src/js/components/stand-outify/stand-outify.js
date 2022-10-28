@@ -147,24 +147,25 @@ customElements.define('stand-outify',
      * @param eventType - a string.
      */
     initializeElement(animationStyle, childElement, eventType) {
-      if (this.#validInitializeParameters(animationStyle, childElement, eventType)) {
+      if (this.#initializeParametersAreValid(animationStyle, childElement, eventType)) {
         this.#setupCustomElement(animationStyle, childElement, eventType)
 
         this.#setChosenAnimationSettings()
 
         this.#addEventListenerToChildElement()
+      } else {
+        throw new Error('Invalid parameter value.')
       }
     }
 
     /**
     * Validates the parameters for the method initializeElement().
     */
-    #validInitializeParameters(animationStyle, childElement, eventType) {
+    #initializeParametersAreValid(animationStyle, childElement, eventType) {
 
       if (typeof animationStyle === 'string' && typeof childElement === 'object' && typeof eventType === 'string') {
         return true
       } else {
-        console.log('Invalid input.')
         return false
       }
     }

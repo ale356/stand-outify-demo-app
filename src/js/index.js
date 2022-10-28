@@ -23,12 +23,16 @@ const standOutifyMenuReference = document.querySelector('stand-outify-menu')
  * Listen for the custom event 'animateElement'.
  */
 standOutifyMenuReference.addEventListener('animateElement', (event) => {
-  removeOldStandOutify()
+  try {
+    removeOldStandOutify()
 
-  const currentDataArray = getCurrentData()
-  const demoElement = createDemoElement(currentDataArray)
+    const currentDataArray = getCurrentData()
+    const demoElement = createDemoElement(currentDataArray)
 
-  showDemoElement(demoElement)
+    showDemoElement(demoElement)
+  } catch (e) {
+    console.error(e.message)
+  }
 })
 
 /**
@@ -54,17 +58,17 @@ const getCurrentData = () => {
   currentDataArray.push(animationOptionValue)
   return currentDataArray
 }
- 
+
 /**
  * Creates an demo element from selected user data.
  */
 const createDemoElement = (currentDataArray) => {
-
+  const chosenAnimationStyle = currentDataArray[1]
   const elementToAnimate = document.createElement(currentDataArray[0])
   elementToAnimate.textContent = 'Demo'
 
   const demoElement = document.createElement('stand-outify')
-  demoElement.initializeElement(currentDataArray[1], elementToAnimate, 'click')
+  demoElement.initializeElement(chosenAnimationStyle, elementToAnimate, 'click')
   return demoElement
 }
 
