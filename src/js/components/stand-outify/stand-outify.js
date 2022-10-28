@@ -299,6 +299,8 @@ customElements.define('stand-outify',
         if (!animationUsesColor) {
           console.log('This animation does not have any color.')
         }
+      } else {
+        throw new Error('The parameter is not a string.')
       }
     }
 
