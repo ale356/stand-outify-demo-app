@@ -96,7 +96,6 @@ customElements.define('stand-outify-display',
       } else {
         observer.disconnect()
       }
-
     }
 
     get displayContainer() {

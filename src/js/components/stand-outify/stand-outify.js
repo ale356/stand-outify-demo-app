@@ -159,80 +159,14 @@ customElements.define('stand-outify',
     }
 
     /**
-    * Validates the parameters for the method initializeElement().
-    */
-    #initializeParametersAreValid(animationStyle, childElement, eventType) {
-
-      if (typeof animationStyle === 'string' && typeof childElement === 'object' && typeof eventType === 'string') {
-        return true
-      } else {
-        return false
-      }
-    }
-
-    /**
-    * Setup the custom element with the values needed to initialize it.
-    */
-    #setupCustomElement(animationStyle, childElement, eventType) {
-
-      this.#setAnimationStyle = animationStyle
-      this.#setEventType = eventType
-
-      childElement.setAttribute('id', 'animation-element')
-      this.#slotElement.appendChild(childElement)
-
-      this.#setChildElement = this.shadowRoot.getElementById('animation-element')
-    }
-
-    /**
-     * Adds a event listener to the child element.
-     */
-    #addEventListenerToChildElement() {
-      // Add a eventlistener with a signal.
-      this.#childElement.addEventListener(this.#getEventType, (event) => {
-        this.#animateChildElement()
-      }, { signal: this.#controller.signal })
-    }
-
-    /**
-     * Sets the animation settings to use.
-     */
-    #setChosenAnimationSettings() {
-      this.#setAnimationStyleSettings()
-      this.#setAnimationTimingSettings()
-    }
-
-    /**
-     * Sets the animation style settings to use.
-     */
-    #setAnimationStyleSettings() {
-      for (const key in this.#animationObject) {
-        if (key === this.#animationStyle) {
-          this.#selectedAnimationStyleSettings = this.#animationObject[key]
-        }
-      }
-    }
-
-    /**
-     * Sets the animation timing settings to use.
-     */
-    #setAnimationTimingSettings() {
-      for (const key in this.#timingObject) {
-        if (key === this.#animationStyle) {
-          this.#selectedAnimationTimingSettings = this.#timingObject[key]
-        }
-      }
-    }
-
-    /**
-     * Change the animation of the element.
-     *
-     * @param animationStyle
-     */
+ * Change the animation of the element.
+ *
+ * @param animationStyle
+ */
     changeAnimationStyle(animationStyle) {
-        this.#setAnimationStyle(animationStyle)
+      this.#setAnimationStyle(animationStyle)
 
-        this.#setChosenAnimationSettings()
+      this.#setChosenAnimationSettings()
     }
 
     /**
@@ -241,11 +175,11 @@ customElements.define('stand-outify',
      * @param eventType - a string.
      */
     changeEventListenerType(eventType) {
-        this.abortEventListenerChildElement()
+      this.abortEventListenerChildElement()
 
-        this.#setEventType(eventType)
-  
-        this.#addEventListenerToChildElement()
+      this.#setEventType(eventType)
+
+      this.#addEventListenerToChildElement()
     }
 
     /**
@@ -258,13 +192,6 @@ customElements.define('stand-outify',
       if (this.#getChildElement === undefined) {
         throw new Error('No element has been initialized.')
       }
-    }
-
-    /**
-     * Animates the child element.
-     */
-    #animateChildElement() {
-      this.#childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
     }
 
     /**
@@ -295,17 +222,6 @@ customElements.define('stand-outify',
     }
 
     /**
-     * Checks if the parameter is a string.
-     */
-    #parameterIsAString(value) {
-      if (typeof value === 'string') {
-        return true
-      } else {
-        return false
-      }
-    }
-
-    /**
      * Changes the duration of the animation.
      *
      * @param milliseconds
@@ -324,10 +240,105 @@ customElements.define('stand-outify',
     }
 
     /**
+    * Setup the custom element with the values needed to initialize it.
+    */
+    #setupCustomElement(animationStyle, childElement, eventType) {
+
+      this.#setAnimationStyle = animationStyle
+      this.#setEventType = eventType
+
+      childElement.setAttribute('id', 'animation-element')
+      this.#slotElement.appendChild(childElement)
+
+      this.#setChildElement = this.shadowRoot.getElementById('animation-element')
+    }
+
+    /**
+     * Sets the animation settings to use.
+     */
+    #setChosenAnimationSettings() {
+      this.#setAnimationStyleSettings()
+      this.#setAnimationTimingSettings()
+    }
+
+    /**
+     * Adds a event listener to the child element.
+     */
+    #addEventListenerToChildElement() {
+      // Add a eventlistener with a signal.
+      this.#childElement.addEventListener(this.#getEventType, (event) => {
+        this.#animateChildElement()
+      }, { signal: this.#controller.signal })
+    }
+
+    /**
+     * Animates the child element.
+     */
+    #animateChildElement() {
+      this.#childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
+    }
+
+    /**
+     * Sets the animation style settings to use.
+     */
+    #setAnimationStyleSettings() {
+      for (const key in this.#animationObject) {
+        if (key === this.#animationStyle) {
+          this.#selectedAnimationStyleSettings = this.#animationObject[key]
+        }
+      }
+    }
+
+    /**
+     * Sets the animation timing settings to use.
+     */
+    #setAnimationTimingSettings() {
+      for (const key in this.#timingObject) {
+        if (key === this.#animationStyle) {
+          this.#selectedAnimationTimingSettings = this.#timingObject[key]
+        }
+      }
+    }
+
+    /**
+    * Validates the parameters for the method initializeElement().
+    */
+    #initializeParametersAreValid(animationStyle, childElement, eventType) {
+
+      if (typeof animationStyle === 'string' && typeof childElement === 'object' && typeof eventType === 'string') {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    /**
+     * Checks if the parameter is a string.
+     */
+    #parameterIsAString(value) {
+      if (typeof value === 'string') {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    /**
      * Checks if the parameter is a number.
      */
     #parameterIsANumber(value) {
       if (typeof value === 'number') {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    /**
+     * Checks if the parameter is a element.
+     */
+    #parameterIsAElement(value) {
+      if (value instanceof Element) {
         return true
       } else {
         return false
@@ -369,16 +380,5 @@ customElements.define('stand-outify',
         throw new Error('The parameter is not a element.')
       }
     }
-
-  /**
-   * Checks if the parameter is a element.
-   */
-    #parameterIsAElement(value) {
-    if (value instanceof Element) {
-      return true
-    } else {
-      return false
-    }
-  }
   }
 )
