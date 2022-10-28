@@ -232,13 +232,9 @@ customElements.define('stand-outify',
      * @param animationStyle
      */
     changeAnimationStyle(animationStyle) {
-      if (this.#parameterIsAString(animationStyle)) {
         this.#setAnimationStyle(animationStyle)
 
         this.#setChosenAnimationSettings()
-      } else {
-        throw new Error('The parameter is not a string.')
-      }
     }
 
     /**
@@ -334,10 +330,10 @@ customElements.define('stand-outify',
       }
     }
 
-/**
- * Checks if the parameter is a number.
- */
-      #parameterIsANumber(value) {
+    /**
+     * Checks if the parameter is a number.
+     */
+    #parameterIsANumber(value) {
       if (typeof value === 'number') {
         return true
       } else {
@@ -350,7 +346,11 @@ customElements.define('stand-outify',
     }
 
     set #setAnimationStyle(animationStyle) {
-      this.#animationStyle = animationStyle
+      if (this.#parameterIsAString(animationStyle)) {
+        this.#animationStyle = animationStyle
+      } else {
+        throw new Error('The parameter is not a string.')
+      }
     }
 
     get #getEventType() {
