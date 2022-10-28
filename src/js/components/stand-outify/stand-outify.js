@@ -297,7 +297,7 @@ customElements.define('stand-outify',
         })
 
         if (!animationUsesColor) {
-          console.log('This animation does not have any color.')
+          throw new Error('This animation does not have any color property.')
         }
       } else {
         throw new Error('The parameter is not a string.')
@@ -329,6 +329,8 @@ customElements.define('stand-outify',
 
         // Change the value of the timing object.
         currentTimingObject.duration = milliseconds
+      } else {
+        throw new Error('Parameter is not of type number.')
       }
     }
 
@@ -339,7 +341,6 @@ customElements.define('stand-outify',
       if (typeof value === 'number') {
         return true
       } else {
-        console.log('Not a number.')
         return false
       }
     }
