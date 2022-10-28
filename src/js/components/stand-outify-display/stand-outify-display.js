@@ -80,11 +80,11 @@ customElements.define('stand-outify-display',
       observer.observe(this.displayContainer, config)
     }
 
-/**
- * Updates the text content of the display title.
- *
- * @type {Function}
- */
+    /**
+     * Updates the text content of the display title.
+     *
+     * @type {Function}
+     */
     #updateDisplayTitle = (mutationList, observer) => {
       if (this.callBackCounter < 1) {
         this.#callBackCounter++

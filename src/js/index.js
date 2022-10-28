@@ -84,9 +84,10 @@ const showDemoElement = (demoElement) => {
 
 
 // Test
-const myElement = document.createElement('button')
-myElement.setAttribute('id', 'test')
-document.body.append(myElement)
-const myReference = document.getElementById('test')
-console.log(typeof myReference)
-console.log(myReference instanceof Element)
+const standOutifyElementTest = document.createElement('stand-outify')
+document.body.append(standOutifyElementTest)
+const headerElement = document.createElement('h1')
+headerElement.textContent = 'Hover Here'
+standOutifyElementTest.initializeElement('highlight', headerElement, 'click')
+standOutifyElementTest.changeDurationOfAnimation('4000')
+

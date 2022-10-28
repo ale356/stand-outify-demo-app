@@ -164,7 +164,7 @@ customElements.define('stand-outify',
  * @param animationStyle
  */
     changeAnimationStyle(animationStyle) {
-      this.#setAnimationStyle(animationStyle)
+      this.#setAnimationStyle = animationStyle
 
       this.#setChosenAnimationSettings()
     }
