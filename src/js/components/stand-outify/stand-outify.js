@@ -363,5 +363,8 @@ customElements.define('stand-outify',
     get #getChildElement() {
       return this.#childElement
     }
+
+    set #setChildElement(childElement) {
+    }
   }
 )
