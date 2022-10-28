@@ -266,7 +266,7 @@ customElements.define('stand-outify',
       this.#controller.abort()
 
       if (this.#getChildElement === undefined) {
-        console.log('No element has been initialized.')
+        throw new Error('No element has been initialized.')
       }
     }
 
