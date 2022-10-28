@@ -247,11 +247,15 @@ customElements.define('stand-outify',
      * @param eventType - a string.
      */
     changeEventListenerType(eventType) {
-      this.abortEventListenerChildElement()
+      if (this.#parameterIsAString(eventType)) {
+        this.abortEventListenerChildElement()
 
-      this.#setEventType(eventType)
-
-      this.#addEventListenerToChildElement()
+        this.#setEventType(eventType)
+  
+        this.#addEventListenerToChildElement()
+      } else {
+        throw new Error('The parameter is not a string.')
+      }
     }
 
     /**
