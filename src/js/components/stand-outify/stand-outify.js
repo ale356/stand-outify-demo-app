@@ -147,15 +147,9 @@ customElements.define('stand-outify',
      * @param eventType - a string.
      */
     initializeStandOutify(animationStyle, childElement, eventType) {
-      if (this.#initializeParametersAreValid(animationStyle, childElement, eventType)) {
-        this.#setupCustomElement(animationStyle, childElement, eventType)
-
-        this.#setChosenAnimationSettings()
-
-        this.#addEventListenerToChildElement()
-      } else {
-        throw new Error('Invalid parameter value.')
-      }
+      this.#setupCustomElement(animationStyle, childElement, eventType)
+      this.#setChosenAnimationSettings()
+      this.#addEventListenerToChildElement()
     }
 
     /**
