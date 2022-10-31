@@ -159,9 +159,9 @@ customElements.define('stand-outify',
     }
 
     /**
-     * Change the animation of the element.
+     * Changes the animation style.
      *
-     * @param animationStyle
+     * @param animationStyle - a string.
      */
     changeAnimationStyle(animationStyle) {
       this.#setAnimationStyle = animationStyle
@@ -170,7 +170,7 @@ customElements.define('stand-outify',
     }
 
     /**
-     * Change the event listener type.
+     * Changes the event listener type.
      *
      * @param eventType - a string.
      */
@@ -196,7 +196,7 @@ customElements.define('stand-outify',
     /**
      * Changes the color of the animation.
      *
-     * @param colorString
+     * @param colorString - a string.
      */
     changeColorOfAnimation(colorString) {
       if (this.#parameterIsAString(colorString)) {
@@ -205,6 +205,7 @@ customElements.define('stand-outify',
         const currentAnimationArray = this.#animationObject[currentAnimation]
         let animationUsesColor = false
 
+        // Update the color of animation.
         currentAnimationArray.forEach(element => {
           if (element.color !== undefined) {
             element.color = colorString
@@ -239,7 +240,10 @@ customElements.define('stand-outify',
     }
 
     /**
-    * Setup the custom element with the values needed to initialize it.
+    * Setup stand-outify with the values needed to initialize it.
+    * @param animationStyle - a string.
+    * @param childElement - a HTMLElement.
+    * @param eventType - a string.
     */
     #setupCustomElement(animationStyle, childElement, eventType) {
 
@@ -252,17 +256,11 @@ customElements.define('stand-outify',
       this.#setChildElement = this.shadowRoot.getElementById('animation-element')
     }
 
-    /**
-     * Sets the animation settings to use.
-     */
     #setChosenAnimationSettings() {
       this.#setAnimationStyleSettings()
       this.#setAnimationTimingSettings()
     }
 
-    /**
-     * Adds a event listener to the child element.
-     */
     #addEventListenerToChildElement() {
       // Add a eventlistener with a signal.
       this.#childElement.addEventListener(this.#getEventType, (event) => {
@@ -270,9 +268,6 @@ customElements.define('stand-outify',
       }, { signal: this.#controller.signal })
     }
 
-    /**
-     * Animates the child element.
-     */
     #animateChildElement() {
       this.#childElement.animate(this.#selectedAnimationStyleSettings, this.#selectedAnimationTimingSettings)
     }
@@ -300,7 +295,7 @@ customElements.define('stand-outify',
     }
 
     /**
-    * Validates the parameters for the method initializeElement().
+    * Validates the parameters for the method initializeStandOutify().
     */
     #initializeParametersAreValid(animationStyle, childElement, eventType) {
 
@@ -311,9 +306,6 @@ customElements.define('stand-outify',
       }
     }
 
-    /**
-     * Checks if the parameter is a string.
-     */
     #parameterIsAString(value) {
       if (typeof value === 'string') {
         return true
@@ -322,9 +314,6 @@ customElements.define('stand-outify',
       }
     }
 
-    /**
-     * Checks if the parameter is a number.
-     */
     #parameterIsANumber(value) {
       if (typeof value === 'number') {
         return true
@@ -333,9 +322,6 @@ customElements.define('stand-outify',
       }
     }
 
-    /**
-     * Checks if the parameter is a element.
-     */
     #parameterIsAElement(value) {
       if (value instanceof Element) {
         return true
