@@ -61,6 +61,8 @@ const getCurrentData = () => {
 
 /**
  * Creates an demo element from selected user data.
+ *
+ * @param currentDataArray - array containing selected user data.
  */
 const createDemoElement = (currentDataArray) => {
   const chosenAnimationStyle = currentDataArray[1]
@@ -74,6 +76,8 @@ const createDemoElement = (currentDataArray) => {
 
 /**
  * Shows the demo element on the user interface.
+ *
+ * @param demoElement - stand-outify custom element.
  */
 const showDemoElement = (demoElement) => {
   const standOutifyDisplayContainer = document.querySelector('stand-outify-display').shadowRoot.getElementById('display-container')

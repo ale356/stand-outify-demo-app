@@ -11,3 +11,4 @@ In the method changeColorOfAnimation() in stand-outify I have several lines of c
 ## Chapter 4
 This chapter really emphasized the importance of "the code". That the truth can only be found in the code itself not the comments. Once I started implementing more rules from the book I saw that a lot of my comments were unnecesary since my code told the reader what it does. Often times I was just repeating myself. I find myself cleaning up my code and removing a lot of comments after reading this chapter. In the setter method "setEventType()" I use the rule "Explain Yourself in Code" in the if statements condition. Instead of just plain code I turned it into a function to make it easier to understand.
 ![Alt text](img/set-event-type.png "Image of the method setEventType()")
+## Chapter 5

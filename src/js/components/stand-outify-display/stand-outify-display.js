@@ -45,14 +45,14 @@ customElements.define('stand-outify-display',
     /**
      * The callback counter.
      *
-     * @type {Number}
+     * @type {number}
      */
     #callBackCounter
 
     /**
      * Creates an instance of the current type.
      */
-    constructor() {
+    constructor () {
       super()
 
       // Attach a shadow DOM tree to this element and
@@ -68,8 +68,7 @@ customElements.define('stand-outify-display',
     /**
      * Called after the element is inserted into the DOM.
      */
-    connectedCallback() {
-
+    connectedCallback () {
       // Options for the observer.
       const config = { childList: true }
 
@@ -99,15 +98,15 @@ customElements.define('stand-outify-display',
       }
     }
 
-    get displayContainer() {
+    get displayContainer () {
       return this.#displayContainer
     }
 
-    get displayTitle() {
+    get displayTitle () {
       return this.#displayTitle
     }
 
-    get callBackCounter() {
+    get callBackCounter () {
       return this.#callBackCounter
     }
   }

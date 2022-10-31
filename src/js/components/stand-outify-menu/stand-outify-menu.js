@@ -105,21 +105,21 @@ customElements.define('stand-outify-menu',
     /**
      * The element options value.
      *
-     * @type {String}
+     * @type {string}
      */
     #elementOptionsValue
 
     /**
      * The animation options value.
      *
-     * @type {String}
+     * @type {string}
      */
     #animationOptionsValue
 
     /**
      * Creates an instance of the current type.
      */
-    constructor() {
+    constructor () {
       super()
 
       // Attach a shadow DOM tree to this element and
@@ -138,7 +138,7 @@ customElements.define('stand-outify-menu',
     /**
      * Called after the element is inserted into the DOM.
      */
-    connectedCallback() {
+    connectedCallback () {
       this.elementOptionsSelectElement.addEventListener('change', (event) => {
         this.#elementOptionsValue = this.elementOptionsSelectElement.options[this.elementOptionsSelectElement.selectedIndex].value
       })
@@ -152,11 +152,11 @@ customElements.define('stand-outify-menu',
       })
     }
 
-    get elementOptionValue() {
+    get elementOptionValue () {
       return this.#elementOptionsValue
     }
 
-    get animationOptionValue() {
+    get animationOptionValue () {
       return this.#animationOptionsValue
     }
   }
