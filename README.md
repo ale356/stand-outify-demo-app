@@ -1,7 +1,7 @@
 # Stand-outify Demo App
 ## Description
 Demo web application to showcase the functionality of the library Stand-outify.
-![Alt text](resources/preview-app.png "Image of the demo web app Stand-outify")
+![Alt text](resources/img/preview-app.png "Image of the demo web app Stand-outify")
 ## Get the Stand-outify library from this link
 https://github.com/ale356/stand-outify
 ## Installation
