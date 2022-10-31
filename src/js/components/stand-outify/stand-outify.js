@@ -158,7 +158,7 @@ customElements.define('stand-outify',
       }
     }
 
-    /**
+/**
  * Change the animation of the element.
  *
  * @param animationStyle
@@ -175,7 +175,7 @@ customElements.define('stand-outify',
      * @param eventType - a string.
      */
     changeEventListenerType(eventType) {
-      this.abortEventListenerChildElement()
+      this.removeEventListenerChildElement()
 
       this.#setEventType(eventType)
 
@@ -185,8 +185,7 @@ customElements.define('stand-outify',
     /**
      * Aborts the event listener on the child element.
      */
-    abortEventListenerChildElement() {
-      // Remove the eventlistener on child element.
+    removeEventListenerChildElement() {
       this.#controller.abort()
 
       if (this.#getChildElement === undefined) {
@@ -224,7 +223,7 @@ customElements.define('stand-outify',
     /**
      * Changes the duration of the animation.
      *
-     * @param milliseconds
+     * @param milliseconds - of type number.
      */
     changeDurationOfAnimation(milliseconds) {
       if (this.#parameterIsANumber(milliseconds)) {

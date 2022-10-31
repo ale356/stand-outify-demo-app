@@ -88,6 +88,7 @@ customElements.define('stand-outify-display',
     #updateDisplayTitle = (mutationList, observer) => {
       if (this.callBackCounter < 1) {
         this.#callBackCounter++
+
         for (const mutation of mutationList) {
           if (mutation.type === 'childList') {
             this.#displayTitle.textContent = 'Click on the element to play the animation.'
