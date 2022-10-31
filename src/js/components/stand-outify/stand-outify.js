@@ -140,13 +140,13 @@ customElements.define('stand-outify',
     }
 
     /**
-     * Initializes the custom element with a style, event type and a child element.
+     * Initializes stand-outify with a style, event type and a child element.
      *
      * @param animationStyle - a string.
      * @param childElement - a HTMLElement.
      * @param eventType - a string.
      */
-    initializeElement(animationStyle, childElement, eventType) {
+    initializeStandOutify(animationStyle, childElement, eventType) {
       if (this.#initializeParametersAreValid(animationStyle, childElement, eventType)) {
         this.#setupCustomElement(animationStyle, childElement, eventType)
 
@@ -158,11 +158,11 @@ customElements.define('stand-outify',
       }
     }
 
-/**
- * Change the animation of the element.
- *
- * @param animationStyle
- */
+    /**
+     * Change the animation of the element.
+     *
+     * @param animationStyle
+     */
     changeAnimationStyle(animationStyle) {
       this.#setAnimationStyle = animationStyle
 
