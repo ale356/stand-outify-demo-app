@@ -24,7 +24,7 @@ The system should be user friendly and easy to understand. By offering this syst
 | [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc11-showcase-an-animated-button-element-successfully)         | OK       |
 | [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.2](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc12-showcase-an-animated-h1-element-successfully)         | OK       |
 ### Stand-outify Library
-Ran the tests again after changes to the library.
+Ran the tests again after changes to the library. Note the method abortEventListenerChildElement() is now called removeEventListenerChildElement().
 | Use-Cases     | Manual Test-Cases | Test Results |
 | ------------- | ------------- | -------- |
 | [UC1](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc1-initialize-element)           | [TC1.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc11-initialize-element-successfully)         | OK       |
