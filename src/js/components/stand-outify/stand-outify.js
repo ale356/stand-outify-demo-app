@@ -288,18 +288,6 @@ customElements.define('stand-outify',
       }
     }
 
-    /**
-    * Validates the parameters for the method initializeStandOutify().
-    */
-    #initializeParametersAreValid(animationStyle, childElement, eventType) {
-
-      if (typeof animationStyle === 'string' && typeof childElement === 'object' && typeof eventType === 'string') {
-        return true
-      } else {
-        return false
-      }
-    }
-
     #parameterIsAString(value) {
       if (typeof value === 'string') {
         return true

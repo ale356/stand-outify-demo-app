@@ -68,7 +68,7 @@ const createDemoElement = (currentDataArray) => {
   elementToAnimate.textContent = 'Demo'
 
   const demoElement = document.createElement('stand-outify')
-  demoElement.initializeElement(chosenAnimationStyle, elementToAnimate, 'click')
+  demoElement.initializeStandOutify(chosenAnimationStyle, elementToAnimate, 'click')
   return demoElement
 }
 
@@ -81,13 +81,3 @@ const showDemoElement = (demoElement) => {
   standOutifyDisplayContainer.appendChild(demoElement)
   standOutifyDisplayContainer.style.display = 'flex'
 }
-
-
-// Test
-const standOutifyElementTest = document.createElement('stand-outify')
-document.body.append(standOutifyElementTest)
-const headerElement = document.createElement('h1')
-headerElement.textContent = 'Hover Here'
-standOutifyElementTest.initializeElement('highlight', headerElement, 'click')
-standOutifyElementTest.changeDurationOfAnimation('4000')
-
