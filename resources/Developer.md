@@ -23,20 +23,6 @@ The system should be user friendly and easy to understand. By offering this syst
 | ------------- | ------------- | -------- |
 | [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc11-showcase-an-animated-button-element-successfully)         | OK       |
 | [UC1](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Use-Cases.md#uc1-showcase-an-animated-element)           | [TC1.2](https://github.com/ale356/stand-outify-demo-app/blob/main/resources/Test-Cases.md#tc12-showcase-an-animated-h1-element-successfully)         | OK       |
-### Stand-outify Library
-Ran the tests again after changes to the library. Note the method abortEventListenerChildElement() is now called removeEventListenerChildElement().
-| Use-Cases     | Manual Test-Cases | Test Results |
-| ------------- | ------------- | -------- |
-| [UC1](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc1-initialize-element)           | [TC1.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc11-initialize-element-successfully)         | OK       |
-| [UC1](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc1-initialize-element)           | [TC1.2](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc12-initialize-element-unsuccessfully)         | OK       |
-| [UC2](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc2-change-animation-style)           | [TC2.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc21-change-element-style-successfully)         | OK       |
-| [UC2](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc2-change-animation-style)           | [TC2.2](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc22-change-elements-style-unsuccessfully)         | OK      |
-| [UC3](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc3-remove-animation)           | [TC3.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc31-remove-animation-successfully)         | OK       |
-| [UC3](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc3-remove-animation)           | [TC3.2](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc32-remove-animation-unsuccessfully)         | OK       |
-| [UC4](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc4-change-animation-color)           | [TC4.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc41-change-animation-color-successfully)         | OK       |
-| [UC4](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc4-change-animation-color)           | [TC4.2](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc42-change-animation-color-unsuccessfully)         | OK     |
-| [UC5](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc5-change-duration-of-animation)           | [TC5.1](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc51-change-duration-of-animation-successfully)         | OK |
-| [UC5](https://github.com/ale356/1DV610-L1/blob/main/resources/Use-Cases.md#uc5-change-duration-of-animation)           | [TC5.2](https://github.com/ale356/1DV610-L1/blob/main/resources/Test-Cases.md#tc52-change-duration-of-animation-unsuccessfully)         | OK |
 ## Explaination of Code
 ### What works?
 All of the claims are fulfilled and working. As of now a user can select a element option and an animation option and animate that element. The user can then click on the displayed element and play the animation. 
