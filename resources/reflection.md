@@ -17,3 +17,6 @@ This chapter taught me that coding style and readability will survive longer tha
 ## Chapter 6
 This chapter taught me that objects are ideal for hiding data behind abstractions with the help of functions that work on that data. While data structures expose their data and have no impactful functionality. Data structures are useful for example when communicating with databases they are then often called "DTO" which stands for data transfer object. If you look at the class stand-outify-menu you can see that it's a object since I hide the data and expose some of the behaviour in this case the getters.
 ![Alt text](img/private-properties-object.png "Image of private properties in the component stand-outify-menu")
+## Chapter 7
+This chapter taught me how useful exceptions is for separating the main logic from the error handling. This helps with better understanding both of these areas independently. One rule that I followed from this chapter was "Provide Context with Exceptions". This will help any future programmers using this application by providing context of the error and where it came from. As you can see on this example I let the user know that they have inputed the wrong data type.
+![Alt text](img/error-handling.png "Image of error handling inside the method changeDurationOfAnimation().")
